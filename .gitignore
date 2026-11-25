@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.log
+Thumbs.db
+
+# Local datasets and reviewed examples
+data/raw/*
+!data/raw/README.md
+data/processed/
+data/reviewed_examples.csv
+
+# Keep only the models used by the desktop app
+models/*
+!models/sms_pipeline.joblib
+!models/email_pipeline.joblib
+!models/jobs_pipeline.joblib
+
+# Keep the summary files and confusion matrices shown in the app
+outputs/*
+!outputs/metrics.csv
+!outputs/experiment_summary.json
+!outputs/figures/
+outputs/figures/*
+!outputs/figures/sms_confusion_matrix.png
+!outputs/figures/email_confusion_matrix.png
+!outputs/figures/jobs_confusion_matrix.png

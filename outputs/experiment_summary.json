@@ -1,0 +1,181 @@
+{
+  "random_state": 42,
+  "profiles": {
+    "sms": {
+      "display_name": "SMS and alerts",
+      "raw_data": {
+        "rows": 5983,
+        "ham": 5112,
+        "spam": 871,
+        "by_source": {
+          "Arabic SMS corpus": {
+            "ham": 330,
+            "spam": 164
+          },
+          "Machine-translated SMS": {
+            "ham": 4782,
+            "spam": 707
+          }
+        }
+      },
+      "clean_data": {
+        "rows": 5291,
+        "ham": 4535,
+        "spam": 756,
+        "by_source": {
+          "Arabic SMS corpus": {
+            "ham": 306,
+            "spam": 157
+          },
+          "Machine-translated SMS": {
+            "ham": 4229,
+            "spam": 599
+          }
+        }
+      },
+      "duplicates_removed": 692,
+      "training_rows": 3968,
+      "test_rows": 1323,
+      "feature_count": 38154,
+      "final_model_rows": 5292,
+      "reviewed_examples_added": 1,
+      "model_path": "D:\\arabic_message_safety_project\\models\\sms_pipeline.joblib",
+      "external_test": {
+        "rows": 55,
+        "spam_detected": 31,
+        "recall": 0.5636363636363636,
+        "training_overlaps_removed": 0
+      },
+      "metrics": [
+        {
+          "model": "Logistic Regression",
+          "accuracy": 0.981859410430839,
+          "precision": 0.9459459459459459,
+          "recall": 0.9259259259259259,
+          "f1": 0.9358288770053476,
+          "roc_auc": 0.9860539551897577
+        },
+        {
+          "model": "K-Nearest Neighbors",
+          "accuracy": 0.9690098261526833,
+          "precision": 0.9683544303797469,
+          "recall": 0.8095238095238095,
+          "f1": 0.8818443804034583,
+          "roc_auc": 0.969511398523744
+        }
+      ]
+    },
+    "email": {
+      "display_name": "Email",
+      "raw_data": {
+        "rows": 600,
+        "ham": 300,
+        "spam": 300,
+        "by_source": {
+          "Bilingual email corpus": {
+            "ham": 300,
+            "spam": 300
+          }
+        }
+      },
+      "clean_data": {
+        "rows": 596,
+        "ham": 296,
+        "spam": 300,
+        "by_source": {
+          "Bilingual email corpus": {
+            "ham": 296,
+            "spam": 300
+          }
+        }
+      },
+      "duplicates_removed": 4,
+      "training_rows": 446,
+      "test_rows": 150,
+      "feature_count": 40703,
+      "final_model_rows": 596,
+      "reviewed_examples_added": 0,
+      "model_path": "D:\\arabic_message_safety_project\\models\\email_pipeline.joblib",
+      "external_test": {
+        "rows": 2000,
+        "accuracy": 0.664,
+        "precision": 0.5980861244019139,
+        "recall": 1.0,
+        "f1": 0.7485029940119761,
+        "roc_auc": 0.912479,
+        "training_overlaps_removed": 0
+      },
+      "metrics": [
+        {
+          "model": "Logistic Regression",
+          "accuracy": 0.9666666666666667,
+          "precision": 0.9493670886075949,
+          "recall": 0.9868421052631579,
+          "f1": 0.967741935483871,
+          "roc_auc": 0.9944879089615932
+        },
+        {
+          "model": "K-Nearest Neighbors",
+          "accuracy": 0.9266666666666666,
+          "precision": 0.8823529411764706,
+          "recall": 0.9868421052631579,
+          "f1": 0.9316770186335404,
+          "roc_auc": 0.971728307254623
+        }
+      ]
+    },
+    "jobs": {
+      "display_name": "Job postings",
+      "raw_data": {
+        "rows": 12000,
+        "ham": 11411,
+        "spam": 589,
+        "by_source": {
+          "Job postings": {
+            "ham": 11411,
+            "spam": 589
+          }
+        }
+      },
+      "clean_data": {
+        "rows": 11970,
+        "ham": 11381,
+        "spam": 589,
+        "by_source": {
+          "Job postings": {
+            "ham": 11381,
+            "spam": 589
+          }
+        }
+      },
+      "duplicates_removed": 30,
+      "training_rows": 8977,
+      "test_rows": 2993,
+      "feature_count": 54000,
+      "final_model_rows": 11970,
+      "reviewed_examples_added": 0,
+      "model_path": "D:\\arabic_message_safety_project\\models\\jobs_pipeline.joblib",
+      "external_test": {
+        "rows": 0,
+        "training_overlaps_removed": 0
+      },
+      "metrics": [
+        {
+          "model": "Logistic Regression",
+          "accuracy": 0.9829602405613097,
+          "precision": 0.82,
+          "recall": 0.8367346938775511,
+          "f1": 0.8282828282828283,
+          "roc_auc": 0.9761928664649275
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "The SMS translation collection is machine-translated from an English benchmark and is not native Egyptian SMS.",
+    "The Arabic SMS source is small, so the SMS result should be treated as a classroom prototype.",
+    "The bilingual email collection is small; its English external set is reported separately.",
+    "The job postings are English-language examples; they do not represent the current Egyptian job market.",
+    "Text-only scores cannot authenticate a sender or prove that a message is safe or fraudulent."
+  ]
+}
